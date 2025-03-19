@@ -422,29 +422,23 @@
       }
 
       // Function to display a message
+      // Find the displayMessage function and replace it with this:
+
       function displayMessage(message) {
-        const messageElement = document.createElement("div");
-        messageElement.className =
-          message.username === currentUsername
-            ? "message sent"
-            : "message received";
-
-        const contentHTML = `
-                                ${
-                                  message.username !== currentUsername
-                                    ? `<div class="user-info">${message.username}</div>`
-                                    : ""
-                                }
-                                <p>${escapeHTML(message.text)}</p>
-                                <div class="time">${formatTime(
-                                  message.timestamp
-                                )}</div>
-                        `;
-
-        messageElement.innerHTML = contentHTML;
-        chatMessagesElement.appendChild(messageElement);
-
-        scrollToBottom();
+          const messageElement = document.createElement("div");
+          messageElement.className = message.username === currentUsername 
+              ? "message sent" 
+              : "message received";
+      
+          const contentHTML = `
+              <p>${escapeHTML(message.text)}</p>
+              <div class="time">${formatTime(message.timestamp)}</div>
+          `;
+      
+          messageElement.innerHTML = contentHTML;
+          chatMessagesElement.appendChild(messageElement);
+      
+          scrollToBottom();
       }
 
       // Function to scroll to the bottom of the chat
